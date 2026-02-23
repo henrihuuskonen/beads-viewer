@@ -151,6 +151,7 @@ export function KanbanBoard() {
       open: [],
       in_progress: [],
       blocked: [],
+      deferred: [],
       closed: [],
     }
 
@@ -222,6 +223,7 @@ export function KanbanBoard() {
           <Column status="open" issues={groupedIssues.open} onIssueClick={setSelectedIssueId} />
           <Column status="in_progress" issues={groupedIssues.in_progress} onIssueClick={setSelectedIssueId} />
           <Column status="blocked" issues={groupedIssues.blocked} onIssueClick={setSelectedIssueId} />
+          <Column status="deferred" issues={groupedIssues.deferred} onIssueClick={setSelectedIssueId} />
           <Column status="closed" issues={groupedIssues.closed} onIssueClick={setSelectedIssueId} />
         </div>
 

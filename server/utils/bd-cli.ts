@@ -6,7 +6,7 @@ export interface BdIssue {
   description?: string;
   design?: string;
   acceptance_criteria?: string;
-  status: 'open' | 'in_progress' | 'blocked' | 'closed';
+  status: 'open' | 'in_progress' | 'blocked' | 'deferred' | 'closed';
   priority: number; // 0-4, 0=highest
   issue_type: 'bug' | 'feature' | 'task' | 'epic' | 'chore';
   created_at: string;
@@ -34,7 +34,7 @@ export interface BdCreateOptions {
 export interface BdUpdateOptions {
   id: string;
   title?: string;
-  status?: 'open' | 'in_progress' | 'blocked' | 'closed';
+  status?: 'open' | 'in_progress' | 'blocked' | 'deferred' | 'closed';
   priority?: number;
   assignee?: string;
   design?: string;
