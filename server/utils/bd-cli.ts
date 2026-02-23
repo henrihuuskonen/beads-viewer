@@ -76,7 +76,15 @@ async function execBd(args: string[]): Promise<any> {
       try {
         // Parse JSON from stdout
         const result = JSON.parse(stdout);
-        resolve(result);
+        // Normalize status: bd uses hyphens (e.g. "in-progress") but the
+        // frontend expects underscores (e.g. "in_progress")
+        const normalize = (issue: any) => {
+          if (issue && typeof issue.status === 'string') {
+            issue.status = issue.status.replace(/-/g, '_');
+          }
+          return issue;
+        };
+        resolve(Array.isArray(result) ? result.map(normalize) : normalize(result));
       } catch (err) {
         reject(new Error(`Failed to parse bd output: ${err}\nOutput: ${stdout}`));
       }
