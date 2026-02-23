@@ -92,7 +92,7 @@ async function execBd(args: string[]): Promise<any> {
  * List all issues
  */
 export async function listIssues(): Promise<BdIssue[]> {
-  return await execBd(['list']);
+  return await execBd(['list', '--all', '-n', '0']);
 }
 
 /**

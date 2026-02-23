@@ -155,7 +155,7 @@ export function KanbanBoard() {
     }
 
     issues.forEach(issue => {
-      groups[issue.status].push(issue)
+      if (groups[issue.status]) groups[issue.status].push(issue)
     })
 
     return groups
